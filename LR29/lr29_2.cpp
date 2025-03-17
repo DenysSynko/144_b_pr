@@ -21,30 +21,30 @@ int main(){
         s[i]= new char[n];
     }
 
-    for(i=0;i<n;i++){
+    for(i=0;i<n;i++){ //введимо рандомні символи
         for(j=0;j<n;j++){
             if(i==j || i+j==n-1){
-                s[i][j]=a[rand()%6+0];
+                s[i][j]=a[rand()%6+0]; //головна + бічна діагоналі вводяться голосні
 
             }else{
-                s[i][j]=b[rand()%21+0];
+                s[i][j]=b[rand()%21+0]; //всі інші приголосні
             }
             
         }
     }
 
-    for(i=0;i<n;i++){
+    for(i=0;i<n;i++){ //виводимо масив
         for(j=0;j<n;j++){
             cout<<s[i][j]<<" ";
         }
         cout<<endl;
     }
     cout<<"Введіть слово: ";
-    cin>>fin;
-    int d=strlen(fin);
-    for(i=0;i<n;i++){
+    cin>>fin; //вводиться шукане слово
+    int d=strlen(fin); //довжина слова
+    for(i=0;i<n;i++){ //цикл пошуку слова по рядках
         for(j=0;j<n;j++){
-            if(s[i][j]==fin[0] && n-j>=d){
+            if(s[i][j]==fin[0] && n-j>=d){ //перевірка чи є слово в рядку
                 fsl=true;
                 isl=i;
                 jslp=j;
@@ -56,7 +56,7 @@ int main(){
                         fsl=false;
                     }
                 }
-                if(fsl){
+                if(fsl){ //запис координатів
                     posi[pi][0]=isl;
                     posi[pi][1]=jslp;
                     posi[pi][2]=jslk;
@@ -69,9 +69,9 @@ int main(){
     }
 
 
-    for(i=0;i<n;i++){
+    for(i=0;i<n;i++){ //цикл пошуку слова по стовпцях
         for(j=0;j<n;j++){
-            if(s[j][i]==fin[0] && n-j>=d){
+            if(s[j][i]==fin[0] && n-j>=d){ //перевірка чи є слово в стовпці
                 fsl=true;
                 isl=i;
                 jslp=j;
@@ -83,7 +83,7 @@ int main(){
                         fsl=false;
                     }
                 }
-                if(fsl){
+                if(fsl){ //запис координатів
                     posj[pj][0]=isl;
                     posj[pj][1]=jslp;
                     posj[pj][2]=jslk;
@@ -98,7 +98,7 @@ int main(){
 
 
 
-    cout<<"Позиції на яких знайдено слово \""<<fin<<"\": ";
+    cout<<"Позиції на яких знайдено слово \""<<fin<<"\": "; //виводимо всі координати слова
     for(i=0;i<ki;i++){
         cout<<posi[i][0]<<","<<posi[i][1]<<" - "<<posi[i][0]<<","<<posi[i][2]<<" | ";
     }
@@ -106,6 +106,7 @@ int main(){
         cout<<posj[i][1]<<","<<posj[i][0]<<" - "<<posj[i][2]<<","<<posj[i][0]<<" | ";
     }
 
-    delete[] s;
+    delete[] s; //вивільнюємо пам'ять
+    system("pause");
     return 0;
 }
