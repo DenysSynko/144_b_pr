@@ -10,6 +10,7 @@ class Pracivnyk{
     Pracivnyk();
     Pracivnyk(string pr, string vdd,  int r, float zp);
     void set_prac(string pr, string vdd,  int r, float zp);
+    void change(string pr, string npr, string vdd,  int r, float zp);
     void get_prac();
     ~Pracivnyk();
 };

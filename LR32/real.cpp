@@ -38,6 +38,15 @@ Pracivnyk::Pracivnyk(string pr, string vdd,  int r, float zp){
         prem=0.4*zarp;
     }
 }
+void Pracivnyk::change(string pr, string npr, string vdd,  int r, float zp){
+    if(pr==prizv){
+        prizv=npr;
+        viddil=vdd;
+        rik=r;
+        zarp=zp;
+        prem = set_prem(rik, zarp);
+    }
+}
 void Pracivnyk::set_prac(string pr, string vdd,  int r, float zp){
     prizv=pr;
     viddil=vdd;

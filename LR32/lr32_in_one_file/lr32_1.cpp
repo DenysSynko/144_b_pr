@@ -52,6 +52,15 @@ class Pracivnyk{
         zarp=zp;
         prem = set_prem(rik, zarp);
     }
+    void change(string pr, string npr, string vdd,  int r, float zp){
+        if(pr==prizv){
+            prizv=npr;
+            viddil=vdd;
+            rik=r;
+            zarp=zp;
+            prem = set_prem(rik, zarp);
+        }
+    }
     void get_prac(){
         cout<<" Прізвище:"<<prizv<<" Відділ:"<<viddil<<" Рік пр-ння:"<<rik<<" Зарплата:"<<zarp<<" Премія:"<<prem<<endl;
     }
@@ -61,7 +70,7 @@ class Pracivnyk{
 int main(){
     setlocale(LC_CTYPE, "ukr");
     int i,n,r;
-    string pr, vdd;
+    string pr, vdd, npr;
     float zp;
     Pracivnyk A;
     Pracivnyk B("Гончар", "Дукарський", 2006, 16000);
@@ -85,7 +94,17 @@ int main(){
     for(i=0;i<n;i++){
         C[i].get_prac();
     }
-    
+    cout<<"Введіть Прізвище: ";
+    cin>>pr;
+    cout<<"Введіть нові дані для об'єкта (Прізвище, Відділ, Рік, Зарплата): "<<endl;
+    cin>>npr>>vdd>>r>>zp;
+    for(i=0;i<n;i++){
+        C[i].change(pr, npr, vdd, r, zp);
+    }
+    cout<<"Масив об'єктів: "<<endl;
+    for(i=0;i<n;i++){
+        C[i].get_prac();
+    }
     return 0;
 }
 //вся програма одним файлом
